@@ -9,10 +9,6 @@ import { PrismaClient } from "@prisma/client";
 
 // const adapter = new PrismaLibSQL(libsql);
 
-declare global {
-	let prisma: PrismaClient | undefined;
-}
-
 // export const db =
 // 	globalThis.prisma ||
 // 	new PrismaClient({ adapter }).$extends({
@@ -34,4 +30,4 @@ declare global {
 
 export const db = globalThis.db || new PrismaClient();
 
-if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
+if (process.env.NODE_ENV !== "production") globalThis.db = db;
